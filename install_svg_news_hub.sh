@@ -206,7 +206,7 @@ echo "Installing Chromium..."
 uv run playwright install chromium
 
 PLIST_NAME="com.svgnewshub.agent"
-PLIST_PATH="$HOME/Library/LaunchAgents/\${PLIST_NAME}.plist"
+PLIST_PATH="$HOME/Library/LaunchAgents/${PLIST_NAME}.plist"
 LOG_PATH="$INSTALL_DIR/svg_news_hub.log"
 UV_PATH="$(which uv)"
 
@@ -216,16 +216,16 @@ cat > "$PLIST_PATH" << PLIST_EOF
 <plist version="1.0">
 <dict>
     <key>Label</key>
-    <string>\${PLIST_NAME}</string>
+    <string>${PLIST_NAME}</string>
     <key>ProgramArguments</key>
     <array>
-        <string>\${UV_PATH}</string>
+        <string>${UV_PATH}</string>
         <string>run</string>
         <string>python3</string>
-        <string>\${INSTALL_DIR}/svg_news_hub.py</string>
+        <string>${INSTALL_DIR}/svg_news_hub.py</string>
     </array>
     <key>WorkingDirectory</key>
-    <string>\${INSTALL_DIR}</string>
+    <string>${INSTALL_DIR}</string>
     <key>StartCalendarInterval</key>
     <dict>
         <key>Minute</key>
@@ -234,13 +234,13 @@ cat > "$PLIST_PATH" << PLIST_EOF
     <key>RunAtLoad</key>
     <false/>
     <key>StandardOutPath</key>
-    <string>\${LOG_PATH}</string>
+    <string>${LOG_PATH}</string>
     <key>StandardErrorPath</key>
-    <string>\${LOG_PATH}</string>
+    <string>${LOG_PATH}</string>
     <key>EnvironmentVariables</key>
     <dict>
         <key>PATH</key>
-        <string>/usr/local/bin:/usr/bin:/bin:/opt/homebrew/bin:\${HOME}/.local/bin</string>
+        <string>/usr/local/bin:/usr/bin:/bin:/opt/homebrew/bin:${HOME}/.local/bin</string>
     </dict>
 </dict>
 </plist>
