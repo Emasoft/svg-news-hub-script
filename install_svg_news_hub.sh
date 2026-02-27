@@ -21,8 +21,7 @@ fi
 mkdir -p "$INSTALL_DIR"
 cd "$INSTALL_DIR"
 
-cat > "$INSTALL_DIR/svg_news_hub.py" << 'PYTHON_EOF'
-import json
+cat > "$INSTALL_DIR/svg_news_hub.py" << 'PYTHON_EOF'import json
 import logging
 import sys
 from datetime import datetime, timezone
